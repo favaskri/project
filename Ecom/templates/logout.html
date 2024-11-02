@@ -1,0 +1,10 @@
+<!-- templates/registration/logout.html -->
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="logout-container">
+    <h2>Logout</h2>
+    <p>You have been successfully logged out.</p>
+    <a href="{% url 'login' %}">Return to home page</a>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ product.name }}</h2>
+  <img src="{{ product.image.url }}" alt="{{ product.name }}">
+  <p>Price: ${{ product.price }}</p>
+  <p>{{ product.details }}</p>
+
+  <a href="{% url 'edit_product' product.pk %}">Edit</a>
+
+  <form method="post" action="{% url 'delete_product' product.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+  </form>
+
+  <!-- Add to Cart Button -->
+  <form method="post" action="{% url 'add_to_cart' product.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+  </form>
+
+{% endblock %}
